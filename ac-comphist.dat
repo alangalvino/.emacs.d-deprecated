@@ -1,0 +1,46 @@
+((("100" .
+   [1 0 0])
+  ("Color-theme-solarized" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0])
+  ("color-theme" .
+   [0 0 0 0 0 0 0 0 0 0 1])
+  ("require" .
+   [0 0 0 1 0 0 0])
+  ("alias" .
+   [1 0 0 0 0])
+  ("emacs" .
+   [0 0 0 1 0])
+  ("super" .
+   [0 0 1 0 0])
+  ("alt" .
+   [1 0 1])
+  ("Control-X-prefix" .
+   [0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("Color" .
+   [0 0 1 0 0])
+  ("menu" .
+   [0 0 2 0])
+  ("x-meta-keysym" .
+   [0 0 0 1 1 0 0 0 0 0 0 0 0])
+  ("control" .
+   [0 0 2 3 0 0 0])
+  ("x-colors" .
+   [0 0 3 0 0 0 0 0])
+  ("x-alt-keysym" .
+   [0 0 0 2 0 0 0 0 0 0 0 0])
+  ("command" .
+   [0 0 0 0 0 0 2])
+  ("x-super-keysym" .
+   [0 0 0 1 1 0 0 0 0 0 0 0 0 0])
+  ("meta" .
+   [6 0 0 1])
+  ("Command" .
+   [0 0 0 0 0 0 1])
+  ("ctrl" .
+   [2 0 1 0])
+  ("color-theme-spec" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0])
+  ("color-theme-solarized" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("color-theme-solarized-dark" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0])))
