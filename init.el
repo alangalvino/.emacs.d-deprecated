@@ -73,6 +73,9 @@
 ;; Plugins path
 (add-to-list 'load-path "~/.emacs.d/plugins/")
 
+;; Markdown mode
+(autoload 'markdown-mode "markdown-mode.el" "Major mode for editing Markdown files" t) (setq auto-mode-alist (cons '("\\.text" . markdown-mode) auto-mode-alist))
+
 ;;YASnippet
 (require 'yasnippet-bundle)
 
@@ -145,6 +148,7 @@
 (global-set-key (kbd "C-x C-v") 'vsplit)
 (global-set-key (kbd "M-RET") 'ns-toggle-fullscreen)
 (global-set-key (kbd "C-x k") 'kill-buffer-and-window)
+(global-set-key (kbd "C-x C-k") 'kill-buffer-and-window)
 (put 'downcase-region 'disabled nil)
 
 ;; ====== Graphical configs ======
