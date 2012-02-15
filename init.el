@@ -59,6 +59,9 @@
 
 ;; ===== General configs  =====
 
+;; Copy to clipboard
+(setq x-select-enable-clipboard t)
+
 ;; Ergonomic emacs
 (setenv "ERGOEMACS_KEYBOARD_LAYOUT" "dv")
 (load "~/.emacs.d/ergoemacs-keybindings-5.3.9/ergoemacs-mode")
