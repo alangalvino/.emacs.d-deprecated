@@ -102,14 +102,14 @@
 ;; ====== Graphical configs ======
 
 ;; Add to load path the solarized theme
-(add-to-list 'load-path "~/.emacs.d/themes/solarized/")
+;(add-to-list 'load-path "~/.emacs.d/themes/solarized/")
 
 ;; Load the color-theme plugin
-(require 'color-theme)
+;(require 'color-theme)
 
 ;; Loand and run the solarized theme
-(load "color-theme-solarized")
-(color-theme-solarized-dark)
+;(load "color-theme-solarized")
+;(color-theme-solarized-dark)
 
 ;; Remove menu bar
 (menu-bar-mode -1)
