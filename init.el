@@ -75,7 +75,6 @@
 
 ;; Global set keys
 (global-set-key (kbd "C-k") 'kill-whole-line)
-(global-set-key (kbd "M-RET") 'ns-toggle-fullscreen)
 (global-set-key (kbd "C-?") 'help-command)
 (global-set-key (kbd "M-?") 'mark-paragraph)
 (global-set-key (kbd "C-h") 'delete-backward-char)
@@ -83,7 +82,6 @@
 (global-set-key "\C-cl" 'org-store-link)
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cb" 'org-iswitchb)
-;; (global-set-key (kbd "M-RET") 'toggle-fullscreen)
 
 ;;Remove fringes
 (custom-set-variables
@@ -98,6 +96,22 @@
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
  )
+
+;; Load system config
+(add-to-list 'load-path "~/.emacs.d/system/")
+
+(if (eq system-type 'darwin)
+    (progn
+      (load "mac")
+      )
+)
+
+(if (eq system-type 'gnu/linux)
+    (progn
+      (load "linux")
+      )
+)
+
 
 ;; ====== Graphical configs ======
 
