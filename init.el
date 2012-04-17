@@ -5,7 +5,7 @@
 
 ;; ====== Functions ======
 
-;; Fullscren
+;; Fullscren on linux
 (defun toggle-fullscreen (&optional f)
       (interactive)
       (let ((current-value (frame-parameter nil 'fullscreen)))
@@ -84,7 +84,6 @@
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cb" 'org-iswitchb)
 ;; (global-set-key (kbd "M-RET") 'toggle-fullscreen)
-;; (global-set-key (kbd "M-w") 'backward-kill-word)
 
 ;;Remove fringes
 (custom-set-variables
@@ -103,14 +102,14 @@
 ;; ====== Graphical configs ======
 
 ;; Add to load path the solarized theme
-;(add-to-list 'load-path "~/.emacs.d/themes/solarized/")
+(add-to-list 'load-path "~/.emacs.d/themes/solarized/")
 
 ;; Load the color-theme plugin
-;(require 'color-theme)
+(require 'color-theme)
 
 ;; Loand and run the solarized theme
-;(load "color-theme-solarized")
-;(color-theme-solarized-dark)
+(load "color-theme-solarized")
+(color-theme-solarized-dark)
 
 ;; Remove menu bar
 (menu-bar-mode -1)
