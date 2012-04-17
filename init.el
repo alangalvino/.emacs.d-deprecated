@@ -1,5 +1,6 @@
 ;; ====== Emacs file ======
 
+
 ;; My emacs config file
 ;; @autor = Alan Gomes Alvino, alangavino@gmail.com
 
