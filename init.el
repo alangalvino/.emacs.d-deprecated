@@ -20,9 +20,6 @@
 
 ;; ====== Plugins ======
 
-;; Add path of the pdflatex, for my Snow Leopard
-(setenv "PATH" (concat "/usr/texbin:" (getenv "PATH")))
-
 ;; Indented for org mode
 (setq org-startup-indented t)
 
@@ -39,6 +36,9 @@
 (ido-mode t)
 
 ;; ====== Gerenal configs ======
+
+;; Default folder
+(setq default-directory "~/workspace")
 
 ;; Set font to Inconsolata
 (set-default-font "Inconsolata-14")
