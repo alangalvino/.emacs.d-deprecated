@@ -2,3 +2,5 @@ auto-save-list
 *.elc
 .DS_Store
 ac-comphist.dat
+local.el
+misc/local.el
