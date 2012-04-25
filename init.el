@@ -20,12 +20,6 @@
 
 ;; ====== Plugins ======
 
-;; Autocomplete mode
-(add-to-list 'load-path "~/.emacs.d/plugins/autocomplete/")
-(require 'auto-complete-config)
-(add-to-list 'ac-dictionary-directories "~/.emacs.d/plugins/autocomplete//ac-dict")
-(ac-config-default)
-
 ;; Add path of the pdflatex, for my Snow Leopard
 (setenv "PATH" (concat "/usr/texbin:" (getenv "PATH")))
 
@@ -44,13 +38,13 @@
 (setq ido-everywhere t)
 (ido-mode t)
 
+;; Autocomplete mode
+(add-to-list 'load-path "~/.emacs.d/plugins/autocomplete/")
+(require 'auto-complete-config)
+(add-to-list 'ac-dictionary-directories "~/.emacs.d/plugins/autocomplete//ac-dict")
+(ac-config-default)
+
 ;; ====== Gerenal configs ======
-
-;; Default folder
-(setq default-directory "~/workspace")
-
-;; Set font to Inconsolata
-(set-default-font "Inconsolata-14")
 
 ;; Space between code and and line number
 (setq linum-format "%d ")
@@ -111,6 +105,9 @@
 ;; Load system config
 (add-to-list 'load-path "~/.emacs.d/system/")
 
+;; Load misc config
+(add-to-list 'load-path "~/.emacs.d/misc/")
+
 (if (eq system-type 'darwin)
     (progn
       (load "mac")
@@ -123,6 +120,8 @@
       )
 )
 
+;; Load local config
+(load "local")
 
 ;; ====== Graphical configs ======
 
