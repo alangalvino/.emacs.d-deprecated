@@ -20,6 +20,15 @@
 
 ;; ====== Plugins ======
 
+;; Autocomplete mode
+(add-to-list 'load-path "~/.emacs.d/plugins/autocomplete/")
+(require 'auto-complete-config)
+(add-to-list 'ac-dictionary-directories "~/.emacs.d/plugins/autocomplete//ac-dict")
+(ac-config-default)
+
+;; Add path of the pdflatex, for my Snow Leopard
+(setenv "PATH" (concat "/usr/texbin:" (getenv "PATH")))
+
 ;; Indented for org mode
 (setq org-startup-indented t)
 
@@ -74,9 +83,6 @@
 
 ;; Enable clipboard copy and paste
 (setq x-select-enable-clipboard t)
-
-;; Command Key on Mac as Meta Key
-(setq mac-command-modifier 'meta)
 
 ;; Global set keys
 (global-set-key (kbd "C-k") 'kill-whole-line)
