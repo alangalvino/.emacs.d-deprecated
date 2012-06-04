@@ -2,6 +2,7 @@
 
 ;; Command Key on Mac as Meta Key
 (setq mac-command-modifier 'meta)
+(setq mac-option-modifier nil)
 
 ;; Global set keys
 (global-set-key (kbd "M-RET") 'ns-toggle-fullscreen)
