@@ -80,7 +80,7 @@
 (column-number-mode 1)
 
 ;; Show lines
-(global-linum-mode 1)
+;;(global-linum-mode 1)
 
 ;; Don't make backup file
 (setq make-backup-files nil)
@@ -175,6 +175,5 @@
              '("marmalade" . "http://marmalade-repo.org/packages/"))
 (package-initialize)
 
-;; (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/solarized/")
-;; (load-theme 'solarized-dark t)
-
+;;(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/solarized/")
+;;(load-theme 'solarized-dark t)
