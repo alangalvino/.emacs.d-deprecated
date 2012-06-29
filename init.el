@@ -16,54 +16,15 @@
                                            'fullboth)))))
 
 
-
-
-;; ====== Plugins ======
-
-;; Pyflake and pep8
-(when (load "flymake" t)
- (defun flymake-pylint-init ()
-   (let* ((temp-file (flymake-init-create-temp-buffer-copy
-                      'flymake-create-temp-inplace))
-          (local-file (file-relative-name
-                       temp-file
-                       (file-name-directory buffer-file-name))))
-         (list "pep8" (list "--repeat" local-file))))
-
- (add-to-list 'flymake-allowed-file-name-masks
-              '("\\.py\\'" flymake-pylint-init)))
-
-(defun my-flymake-show-help ()
-  (when (get-char-property (point) 'flymake-overlay)
-    (let ((help (get-char-property (point) 'help-echo)))
-      (if help (message "%s" help)))))
-
-(add-hook 'post-command-hook 'my-flymake-show-help)
-(add-hook 'find-file-hook 'flymake-find-file-hook)
-
-;; Add path of the pdflatex, for my Snow Leopard
-(setenv "PATH" (concat "/usr/texbin:" (getenv "PATH")))
-
-;; Indented for org mode
-(setq org-startup-indented t)
-
-;; Add to load-path the plugins directory
-(add-to-list 'load-path "~/.emacs.d/plugins/")
-
-;; Load end run autopair mode
-(load "autopair")
-(autopair-global-mode)
-
-;; Ido mode
-(setq ido-enable-flex-matching t)
-(setq ido-everywhere t)
-(ido-mode t)
-
-;; Autocomplete mode
-(add-to-list 'load-path "~/.emacs.d/plugins/autocomplete/")
-(require 'auto-complete-config)
-(add-to-list 'ac-dictionary-directories "~/.emacs.d/plugins/autocomplete//ac-dict")
-(ac-config-default)
+;; Comment line or region
+(defun comment-or-uncomment-region-or-line ()
+    "Comments or uncomments the region or the current line if there's no active region."
+    (interactive)
+    (let (beg end)
+        (if (region-active-p)
+            (setq beg (region-beginning) end (region-end))
+            (setq beg (line-beginning-position) end (line-end-position)))
+        (comment-or-uncomment-region beg end)))
 
 ;; ====== Gerenal configs ======
 
@@ -105,24 +66,8 @@
 (global-set-key (kbd "M-?") 'mark-paragraph)
 (global-set-key (kbd "C-h") 'delete-backward-char)
 (global-set-key (kbd "M-h") 'backward-kill-word)
-(global-set-key "\C-cl" 'org-store-link)
-(global-set-key "\C-ca" 'org-agenda)
-(global-set-key "\C-cb" 'org-iswitchb)
-
-;;Remove fringes
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-safe-themes (quote ("501caa208affa1145ccbb4b74b6cd66c3091e41c5bb66c677feda9def5eab19c" "71b172ea4aad108801421cc5251edb6c792f3adbaecfa1c52e94e3d99634dee7" default)))
- '(fringe-mode 0 nil (fringe)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+(global-set-key (kbd "C-x C-b") 'ido-display-buffer)
+(global-set-key (kbd "C--") 'comment-or-uncomment-region-or-line)
 
 ;; Load system config
 (add-to-list 'load-path "~/.emacs.d/system/")
@@ -143,19 +88,7 @@
 )
 
 ;; Load local config
-(load "local")
-
-;; ====== Graphical configs ======
-
-;; Add to load path the solarized theme
-;(add-to-list 'load-path "~/.emacs.d/themes/solarized/")
-
-;; Load the color-theme plugin
-;(require 'color-theme)
-
-;; Loand and run the solarized theme
-;(load "color-theme-solarized")
-;(color-theme-solarized-dark)
+(unless (require 'local nil t) (message "Copy the file misc/base.el to misc/local.el!"))
 
 ;; Remove menu bar
 (menu-bar-mode -1)
@@ -166,8 +99,10 @@
 ;; Remove scroll bar
 (toggle-scroll-bar -1)
 
+
 ;; ====== Emacs 24 ======
 
+;; Load package, tromey and marmalade repositories
 (require 'package)
 (add-to-list 'package-archives
              '("elpa" . "http://tromey.com/elpa/"))
@@ -175,5 +110,58 @@
              '("marmalade" . "http://marmalade-repo.org/packages/"))
 (package-initialize)
 
-;;(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/solarized/")
-;;(load-theme 'solarized-dark t)
+;; Setup or install el-get if it's not installed
+(add-to-list 'load-path "~/.emacs.d/el-get/el-get")
+
+(unless (require 'el-get nil t)
+  (url-retrieve
+   "https://github.com/dimitri/el-get/raw/master/el-get-install.el"
+   (lambda (s)
+     (end-of-buffer)
+     (eval-print-last-sexp))))
+
+(setq el-get-sources
+      '((:name solarized-theme 
+               :type elpa)))
+
+;; Packages to install
+(setq my-packages 
+      (append '(
+		nav
+		auto-complete
+		solarized-theme
+		autopair
+		) 
+	      (mapcar 'el-get-source-name el-get-sources))) 
+
+(el-get 'sync my-packages)
+
+;; Remove anoying message from emacsclient
+(remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function)
+
+;; ######## Initialize plugins ########
+
+;; Ido mode
+(require 'ido)
+(ido-mode t)
+
+;; Autopair
+(require 'autopair)
+(autopair-mode t)
+
+;; Solarized-theme
+(load-theme 'solarized-dark)
+
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes (quote ("501caa208affa1145ccbb4b74b6cd66c3091e41c5bb66c677feda9def5eab19c" default))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

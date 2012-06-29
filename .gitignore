@@ -4,3 +4,5 @@ auto-save-list
 ac-comphist.dat
 local.el
 misc/local.el
+el-get/*
+elpa/*
