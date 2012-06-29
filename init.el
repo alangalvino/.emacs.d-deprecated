@@ -141,13 +141,13 @@
 
 ;; ######## Initialize plugins ########
 
+;; Autopair
+(require 'autopair)
+(autopair-global-mode)
+
 ;; Ido mode
 (require 'ido)
 (ido-mode t)
-
-;; Autopair
-(require 'autopair)
-(autopair-mode t)
 
 ;; Load Solarized
 (load-theme 'solarized-dark t)
