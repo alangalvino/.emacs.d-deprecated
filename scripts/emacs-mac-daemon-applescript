@@ -1,0 +1,3 @@
+tell application "Terminal" 
+    do shell script "/Users/alan/.emacs.d/scripts/emacs-mac-daemon.sh"    
+end tell
