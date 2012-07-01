@@ -4,6 +4,9 @@
 (setq mac-command-modifier 'meta)
 (setq mac-option-modifier nil)
 
+;; Just one frame
+(setq ns-pop-up-frames nil)
+
 ;; Global set keys
 (global-set-key (kbd "M-RET") 'ns-toggle-fullscreen)
 
