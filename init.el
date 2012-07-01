@@ -89,7 +89,6 @@
 
 ;; Load local config
 (load "local")
-;;(unless (require 'local nil t) (message "Copy the file misc/base.el to misc/local.el!"))
 
 ;; Remove menu bar
 (menu-bar-mode -1)
@@ -100,6 +99,8 @@
 ;; Remove scroll bar
 (toggle-scroll-bar -1)
 
+;; Blink cursor mode
+(setq blink-cursor-mode t)
 
 ;; ====== Emacs 24 ======
 
