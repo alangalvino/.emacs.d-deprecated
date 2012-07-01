@@ -88,7 +88,8 @@
 )
 
 ;; Load local config
-(unless (require 'local nil t) (message "Copy the file misc/base.el to misc/local.el!"))
+(load "local")
+;;(unless (require 'local nil t) (message "Copy the file misc/base.el to misc/local.el!"))
 
 ;; Remove menu bar
 (menu-bar-mode -1)
@@ -131,6 +132,7 @@
 		auto-complete
 		solarized-theme
 		autopair
+		smooth-scroll
 		) 
 	      (mapcar 'el-get-source-name el-get-sources))) 
 
@@ -151,3 +153,13 @@
 
 ;; Load Solarized
 (load-theme 'solarized-dark t)
+
+;; Smooth Scroll
+(require 'smooth-scroll)
+(smooth-scroll-mode t)
+
+;; scroll one line at a time (less "jumpy" than defaults)
+(setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; one line at a time
+(setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
+(setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
+(setq scroll-step 1) ;; keyboard scroll one line at a time
