@@ -124,7 +124,8 @@
 
 (setq el-get-sources
       '((:name solarized-theme 
-               :type elpa)))
+               :type elpa
+	       :compile "solarized-theme")))
 
 ;; Packages to install
 (setq my-packages 
@@ -133,6 +134,7 @@
 		auto-complete
 		solarized-theme
 		autopair
+		rinari
 		smooth-scroll
 		) 
 	      (mapcar 'el-get-source-name el-get-sources))) 
@@ -154,6 +156,9 @@
 
 ;; Load Solarized
 (load-theme 'solarized-dark t)
+
+;; Load speed-bar same frame
+(require 'sr-speedbar)
 
 ;; Smooth Scroll
 (require 'smooth-scroll)

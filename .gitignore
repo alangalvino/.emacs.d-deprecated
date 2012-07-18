@@ -6,3 +6,4 @@ local.el
 misc/local.el
 el-get/*
 elpa/*
+url/*
