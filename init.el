@@ -123,9 +123,16 @@
      (eval-print-last-sexp))))
 
 (setq el-get-sources
-      '((:name solarized-theme 
+      '(
+	(:name solarized-theme 
                :type elpa
-	       :compile "solarized-theme")))
+	       :compile "solarized-theme")
+	(:name expand-region
+	       :type git
+	       :url "https://github.com/magnars/expand-region.el/"
+	       :compile "expand-region.el")
+	)
+      )
 
 ;; Packages to install
 (setq my-packages 
@@ -136,6 +143,7 @@
 		autopair
 		rinari
 		smooth-scroll
+		expand-region
 		) 
 	      (mapcar 'el-get-source-name el-get-sources))) 
 
@@ -163,6 +171,9 @@
 ;; Smooth Scroll
 (require 'smooth-scroll)
 (smooth-scroll-mode t)
+
+(require 'expand-region)
+(global-set-key (kbd "C-=") 'er/expand-region)
 
 ;; scroll one line at a time (less "jumpy" than defaults)
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; one line at a time
