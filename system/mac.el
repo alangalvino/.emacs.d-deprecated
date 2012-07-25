@@ -12,3 +12,6 @@
 
 ;; Add path of the pdflatex, for my Snow Leopard
 (setenv "PATH" (concat "/usr/texbin:" (getenv "PATH")))
+
+;; Remove fringe
+(fringe-mode 0)

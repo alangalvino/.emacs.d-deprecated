@@ -1,9 +1,9 @@
-;; ====== Emacs file ======
+;; ======== Emacs file ========
 
 ;; My emacs config file
 ;; @autor = Alan Gomes Alvino, alangavino@gmail.com
 
-;; ====== Functions ======
+;; ======== Functions ========
 
 ;; Fullscren on linux
 (defun toggle-fullscreen (&optional f)
@@ -26,7 +26,16 @@
             (setq beg (line-beginning-position) end (line-end-position)))
         (comment-or-uncomment-region beg end)))
 
-;; ====== Gerenal configs ======
+
+;; Remove linum mode of the nav buffer
+(defun remove-linum-mode-of-nav-buffer ()
+  (unless (equal nil (string-match "*nav*" (buffer-name))) (linum-mode 0) nil)
+  )
+
+;; ======== Gerenal configs ========
+
+;; Adding remove linum mode to after changing mode hook
+(add-hook 'after-change-major-mode-hook 'remove-linum-mode-of-nav-buffer)
 
 ;; Space between code and and line number
 (setq linum-format "%d ")
@@ -41,7 +50,7 @@
 (column-number-mode 1)
 
 ;; Show lines
-;;(global-linum-mode 1)
+(global-linum-mode 1)
 
 ;; Don't make backup file
 (setq make-backup-files nil)
@@ -102,7 +111,7 @@
 ;; Blink cursor mode
 (setq blink-cursor-mode t)
 
-;; ====== Emacs 24 ======
+;; ======== Emacs 24 ========
 
 ;; Load package, tromey and marmalade repositories
 (require 'package)
@@ -131,6 +140,10 @@
 	       :type git
 	       :url "https://github.com/magnars/expand-region.el/"
 	       :compile "expand-region.el")
+	(:name dirtree
+	       :type git
+	       :url "https://github.com/zkim/emacs-dirtree.git"
+	       :compile "dirtree.el")
 	)
       )
 
@@ -138,6 +151,7 @@
 (setq my-packages 
       (append '(
 		nav
+		dirtree
 		auto-complete
 		solarized-theme
 		autopair
@@ -152,7 +166,10 @@
 ;; Remove anoying message from emacsclient
 (remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function)
 
-;; ######## Initialize plugins ########
+;; ======== Initialize plugins ========
+
+;; Adding plugin folder
+(add-to-list 'load-path "~/.emacs.d/plugins/")
 
 ;; Autopair
 (require 'autopair)
@@ -174,6 +191,11 @@
 
 (require 'expand-region)
 (global-set-key (kbd "C-=") 'er/expand-region)
+
+;; Dirtree
+(require 'tree-mode)
+(require 'windata)
+(require 'dirtree)
 
 ;; scroll one line at a time (less "jumpy" than defaults)
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; one line at a time
