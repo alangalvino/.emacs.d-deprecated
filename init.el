@@ -157,6 +157,7 @@
 		autopair
 		rinari
 		smooth-scroll
+		markdown-mode
 		expand-region
 		) 
 	      (mapcar 'el-get-source-name el-get-sources))) 
