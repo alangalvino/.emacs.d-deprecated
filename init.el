@@ -133,6 +133,10 @@
 
 (setq el-get-sources
       '(
+	(:name auto-complete
+               :type git
+	       :url "https://github.com/auto-complete/auto-complete.git"
+	       :branch "1.3")
 	(:name solarized-theme 
                :type elpa
 	       :compile "solarized-theme")
@@ -171,6 +175,10 @@
 
 ;; Adding plugin folder
 (add-to-list 'load-path "~/.emacs.d/plugins/")
+
+;; Auto-complete
+(require 'auto-complete)
+(global-auto-complete-mode t)
 
 ;; Autopair
 (require 'autopair)
