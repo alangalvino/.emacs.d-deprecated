@@ -181,10 +181,11 @@
 (ido-mode t)
 
 ;; Load Solarized
+(require 'solarized-theme)
 (load-theme 'solarized-dark t)
 
 ;; Load speed-bar same frame
-(require 'sr-speedbar)
+;; (require 'sr-speedbar)
 
 ;; Smooth Scroll
 (require 'smooth-scroll)
