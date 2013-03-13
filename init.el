@@ -49,6 +49,9 @@
 ;; Show column number
 (column-number-mode 1)
 
+;; Refresh buffers
+(global-auto-revert-mode t)
+
 ;; Show lines
 (global-linum-mode 1)
 
@@ -148,6 +151,16 @@
 	       :type git
 	       :url "https://github.com/zkim/emacs-dirtree.git"
 	       :compile "dirtree.el")
+	(:name jade-mode
+	       :type elpa
+	       :compile "jade-mode.el")
+	(:name sws-mode
+	       :type elpa
+	       :compile "sws-mode.el")
+	(:name nxhtml
+	       :type git
+	       :url "https://github.com/emacsmirror/nxhtml.git"
+	       :compile "autostart.el")
 	)
       )
 
@@ -159,10 +172,13 @@
 		auto-complete
 		solarized-theme
 		autopair
+		jade-mode
+		sws-mode
 		rinari
 		smooth-scroll
 		markdown-mode
 		expand-region
+		nxhtml
 		) 
 	      (mapcar 'el-get-source-name el-get-sources))) 
 
@@ -175,6 +191,13 @@
 
 ;; Adding plugin folder
 (add-to-list 'load-path "~/.emacs.d/plugins/")
+
+;;
+(require 'dirtree)
+
+;; Rinari
+(require 'rinari)
+(setq ruby-insert-encoding-magic-comment nil) ;; Remove auto commit on ruby files
 
 ;; Auto-complete
 (require 'auto-complete)
@@ -206,6 +229,15 @@
 (require 'tree-mode)
 (require 'windata)
 (require 'dirtree)
+
+;; Jade mode
+(require 'sws-mode)
+(require 'jade-mode)
+(add-to-list 'auto-mode-alist '("\\.styl$" . sws-mode))
+(add-to-list 'auto-mode-alist '("\\.jade$" . jade-mode))
+
+;; nXhtml
+;; (load "~/.emacs.d/el-get/nxhtml/autostart.el")
 
 ;; scroll one line at a time (less "jumpy" than defaults)
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; one line at a time
