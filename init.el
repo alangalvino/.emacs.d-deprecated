@@ -174,7 +174,7 @@
 		autopair
 		jade-mode
 		sws-mode
-		rinari
+		;; rinari
 		smooth-scroll
 		markdown-mode
 		expand-region
@@ -196,8 +196,8 @@
 (require 'dirtree)
 
 ;; Rinari
-(require 'rinari)
-(setq ruby-insert-encoding-magic-comment nil) ;; Remove auto commit on ruby files
+;; (require 'rinari)
+;; (setq ruby-insert-encoding-magic-comment nil) ;; Remove auto commit on ruby files
 
 ;; Auto-complete
 (require 'auto-complete)
@@ -244,3 +244,6 @@
 (setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
 (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
 (setq scroll-step 1) ;; keyboard scroll one line at a time
+
+;; Open justo one window
+(custom-set-variables '(pop-up-frames nil))
