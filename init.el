@@ -174,7 +174,7 @@
 		autopair
 		jade-mode
 		sws-mode
-		rinari
+		;; rinari
 		smooth-scroll
 		markdown-mode
 		expand-region
@@ -196,8 +196,8 @@
 (require 'dirtree)
 
 ;; Rinari
-(require 'rinari)
-(setq ruby-insert-encoding-magic-comment nil) ;; Remove auto commit on ruby files
+;; (require 'rinari)
+;; (setq ruby-insert-encoding-magic-comment nil) ;; Remove auto commit on ruby files
 
 ;; Auto-complete
 (require 'auto-complete)
@@ -252,3 +252,6 @@
             (imenu-add-menubar-index)
             ;; Activate the folding mode
             (hs-minor-mode t)))
+
+;; Open justo one window
+(custom-set-variables '(pop-up-frames nil))
