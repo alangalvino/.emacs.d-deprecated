@@ -73,13 +73,13 @@
 (setq x-select-enable-clipboard t)
 
 ;; Global set keys
-(global-set-key (kbd "C-k") 'kill-whole-line)
-(global-set-key (kbd "C-?") 'help-command)
-(global-set-key (kbd "M-?") 'mark-paragraph)
-(global-set-key (kbd "C-h") 'delete-backward-char)
-(global-set-key (kbd "M-h") 'backward-kill-word)
-(global-set-key (kbd "C-x C-b") 'ido-display-buffer)
-(global-set-key (kbd "C--") 'comment-or-uncomment-region-or-line)
+;(global-set-key (kbd "C-k") 'kill-whole-line)
+;(global-set-key (kbd "C-?") 'help-command)
+;(global-set-key (kbd "M-?") 'mark-paragraph)
+;(global-set-key (kbd "C-h") 'delete-backward-char)
+;(global-set-key (kbd "M-h") 'backward-kill-word)
+;(global-set-key (kbd "C-x C-b") 'ido-display-buffer)
+;(global-set-key (kbd "C--") 'comment-or-uncomment-region-or-line)
 
 ;; Load system config
 (add-to-list 'load-path "~/.emacs.d/system/")
@@ -235,6 +235,11 @@
 (require 'jade-mode)
 (add-to-list 'auto-mode-alist '("\\.styl$" . sws-mode))
 (add-to-list 'auto-mode-alist '("\\.jade$" . jade-mode))
+
+;; Ergonomic Emacs
+(setenv "ERGOEMACS_KEYBOARD_LAYOUT" "dv") ; US Dvorak (Ergonomic)
+(load "~/.emacs.d/plugins/ergoemacs-keybindings/ergoemacs-mode")
+(ergoemacs-mode 1)
 
 ;; nXhtml
 ;; (load "~/.emacs.d/el-get/nxhtml/autostart.el")
