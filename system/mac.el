@@ -11,7 +11,7 @@
 (global-set-key (kbd "M-RET") 'toggle-fullscreen)
 
 ;; Add path of the pdflatex, for my Snow Leopard
-(setenv "PATH" (concat "/usr/texbin:" (getenv "PATH")))
+(setenv "PATH" (concat "/usr/local/bin:/usr/texbin:" (getenv "PATH")))
 
 ;; Remove fringe
 (fringe-mode 0)
