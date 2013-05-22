@@ -34,6 +34,9 @@
 
 ;; ======== Gerenal configs ========
 
+;; Tab width 
+(setq-default tab-width 4)
+
 ;; Adding remove linum mode to after changing mode hook
 (add-hook 'after-change-major-mode-hook 'remove-linum-mode-of-nav-buffer)
 
@@ -79,7 +82,7 @@
 ;(global-set-key (kbd "C-h") 'delete-backward-char)
 ;(global-set-key (kbd "M-h") 'backward-kill-word)
 ;(global-set-key (kbd "C-x C-b") 'ido-display-buffer)
-;(global-set-key (kbd "C--") 'comment-or-uncomment-region-or-line)
+(global-set-key (kbd "C--") 'comment-or-uncomment-region-or-line)
 
 ;; Load system config
 (add-to-list 'load-path "~/.emacs.d/system/")
