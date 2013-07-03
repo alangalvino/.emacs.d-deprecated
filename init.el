@@ -157,6 +157,9 @@
 	(:name jade-mode
 	       :type elpa
 	       :compile "jade-mode.el")
+	(:name scala-mode
+	       :type elpa
+	       :compile "scala-mode.el")
 	(:name sws-mode
 	       :type elpa
 	       :compile "sws-mode.el")
@@ -182,6 +185,7 @@
 		markdown-mode
 		expand-region
 		nxhtml
+		scala-mode
 		) 
 	      (mapcar 'el-get-source-name el-get-sources))) 
 
