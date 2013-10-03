@@ -34,8 +34,8 @@
 
 ;; ======== Gerenal configs ========
 
-;; Tab width 
-(setq-default tab-width 4)
+;; Tab width
+(setq-default indent-tabs-mode nil)
 
 ;; Adding remove linum mode to after changing mode hook
 (add-hook 'after-change-major-mode-hook 'remove-linum-mode-of-nav-buffer)
@@ -124,7 +124,7 @@
 (add-to-list 'package-archives
              '("elpa" . "http://tromey.com/elpa/"))
 (add-to-list 'package-archives
-             '("marmalade" . "http://marmalade-repo.org/packages/"))
+             '("marmalade" . "htt://marmalade-repo.org/packages/"))
 (package-initialize)
 
 ;; Setup or install el-get if it's not installed
@@ -157,9 +157,10 @@
 	(:name jade-mode
 	       :type elpa
 	       :compile "jade-mode.el")
-	(:name scala-mode
-	       :type elpa
-	       :compile "scala-mode.el")
+	(:name scala-mode2
+	       :type git
+               :url "https://github.com/hvesalai/scala-mode2.git"
+	       :compile "scala-mode2.el")
 	(:name sws-mode
 	       :type elpa
 	       :compile "sws-mode.el")
@@ -185,7 +186,7 @@
 		markdown-mode
 		expand-region
 		nxhtml
-		scala-mode
+		scala-mode2
 		) 
 	      (mapcar 'el-get-source-name el-get-sources))) 
 
