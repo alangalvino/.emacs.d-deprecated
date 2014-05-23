@@ -119,13 +119,9 @@
 
 ;; ======== Emacs 24 ========
 
-;; Load package, tromey and marmalade repositories
-(require 'package)
-(add-to-list 'package-archives
-             '("elpa" . "http://tromey.com/elpa/"))
-(add-to-list 'package-archives
-             '("marmalade" . "http://marmalade-repo.org/packages/"))
-(package-initialize)
+;; Making elpa dir
+(unless (file-directory-p "~/.emacs.d/elpa")
+  (make-directory "~/.emacs.d/elpa"))
 
 ;; Setup or install el-get if it's not installed
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
