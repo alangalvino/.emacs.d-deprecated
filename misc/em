@@ -1,3 +1,0 @@
-#!/bin/bash
-
-open -a /usr/local/Cellar/emacs/24.2/Emacs.app/Contents/MacOS/Emacs $@ &

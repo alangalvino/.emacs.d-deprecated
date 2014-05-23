@@ -102,8 +102,8 @@
       )
 )
 
-;; Load local config
-(load "local")
+;; Load base config
+(load "base")
 
 ;; Remove menu bar
 (menu-bar-mode -1)
@@ -124,7 +124,7 @@
 (add-to-list 'package-archives
              '("elpa" . "http://tromey.com/elpa/"))
 (add-to-list 'package-archives
-             '("marmalade" . "htt://marmalade-repo.org/packages/"))
+             '("marmalade" . "http://marmalade-repo.org/packages/"))
 (package-initialize)
 
 ;; Setup or install el-get if it's not installed
@@ -154,16 +154,6 @@
 	       :type git
 	       :url "https://github.com/zkim/emacs-dirtree.git"
 	       :compile "dirtree.el")
-	(:name jade-mode
-	       :type elpa
-	       :compile "jade-mode.el")
-	(:name scala-mode2
-	       :type git
-               :url "https://github.com/hvesalai/scala-mode2.git"
-	       :compile "scala-mode2.el")
-	(:name sws-mode
-	       :type elpa
-	       :compile "sws-mode.el")
 	(:name nxhtml
 	       :type git
 	       :url "https://github.com/emacsmirror/nxhtml.git"
@@ -179,9 +169,6 @@
 		auto-complete
 		solarized-theme
 		autopair
-		jade-mode
-		sws-mode
-		;; rinari
 		smooth-scroll
 		markdown-mode
 		expand-region
@@ -237,12 +224,6 @@
 (require 'tree-mode)
 (require 'windata)
 (require 'dirtree)
-
-;; Jade mode
-(require 'sws-mode)
-(require 'jade-mode)
-(add-to-list 'auto-mode-alist '("\\.styl$" . sws-mode))
-(add-to-list 'auto-mode-alist '("\\.jade$" . jade-mode))
 
 ;; Ergonomic Emacs
 (setenv "ERGOEMACS_KEYBOARD_LAYOUT" "dv") ; US Dvorak (Ergonomic)

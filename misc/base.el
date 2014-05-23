@@ -5,4 +5,7 @@
 (setq default-directory "~/workspace")
 
 ;; Set font to Inconsolata
-(set-default-font "Inconsolata-13")
+;; (set-default-font "Inconsolata-16")
+
+;; Não repassar os comandos do emacs para o mac!
+;; (setq mac-pass-command-to-system nil)
