@@ -76,12 +76,6 @@
 (setq x-select-enable-clipboard t)
 
 ;; Global set keys
-;(global-set-key (kbd "C-k") 'kill-whole-line)
-;(global-set-key (kbd "C-?") 'help-command)
-;(global-set-key (kbd "M-?") 'mark-paragraph)
-;(global-set-key (kbd "C-h") 'delete-backward-char)
-;(global-set-key (kbd "M-h") 'backward-kill-word)
-;(global-set-key (kbd "C-x C-b") 'ido-display-buffer)
 (global-set-key (kbd "C--") 'comment-or-uncomment-region-or-line)
 
 ;; Load system config
@@ -124,8 +118,6 @@
   (make-directory "~/.emacs.d/elpa"))
 
 ;; Setup or install el-get if it's not installed
-(add-to-list 'load-path "~/.emacs.d/el-get/el-get")
-
 (unless (require 'el-get nil t)
   (url-retrieve
    "https://github.com/dimitri/el-get/raw/master/el-get-install.el"
@@ -133,47 +125,10 @@
      (end-of-buffer)
      (eval-print-last-sexp))))
 
-(setq el-get-sources
-      '(
-	(:name auto-complete
-               :type git
-	       :url "https://github.com/auto-complete/auto-complete.git"
-	       :branch "1.3")
-	(:name solarized-theme 
-               :type elpa
-	       :compile "solarized-theme")
-	(:name expand-region
-	       :type git
-	       :url "https://github.com/magnars/expand-region.el/"
-	       :compile "expand-region.el")
-	(:name dirtree
-	       :type git
-	       :url "https://github.com/zkim/emacs-dirtree.git"
-	       :compile "dirtree.el")
-	(:name nxhtml
-	       :type git
-	       :url "https://github.com/emacsmirror/nxhtml.git"
-	       :compile "autostart.el")
-	)
-      )
-
-;; Packages to install
-(setq my-packages 
-      (append '(
-		nav
-		dirtree
-		auto-complete
-		solarized-theme
-		autopair
-		smooth-scroll
-		markdown-mode
-		expand-region
-		nxhtml
-		scala-mode2
-		) 
-	      (mapcar 'el-get-source-name el-get-sources))) 
-
-(el-get 'sync my-packages)
+;; Install el-get packages
+(if (file-directory-p "~/.emacs.d/el-get")
+  (load "el-get-config")	
+)
 
 ;; Remove anoying message from emacsclient
 (remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function)
@@ -183,57 +138,9 @@
 ;; Adding plugin folder
 (add-to-list 'load-path "~/.emacs.d/plugins/")
 
-;;
-(require 'dirtree)
-
-;; Rinari
-;; (require 'rinari)
-;; (setq ruby-insert-encoding-magic-comment nil) ;; Remove auto commit on ruby files
-
-;; Auto-complete
-(require 'auto-complete)
-(global-auto-complete-mode t)
-
-;; Autopair
-(require 'autopair)
-(autopair-global-mode)
-
-;; Ido mode
-(require 'ido)
-(ido-mode t)
-
-;; Load Solarized
-(require 'solarized-theme)
-(load-theme 'solarized-dark t)
-
-;; Load speed-bar same frame
-;; (require 'sr-speedbar)
-
-;; Smooth Scroll
-(require 'smooth-scroll)
-(smooth-scroll-mode t)
-
-(require 'expand-region)
-(global-set-key (kbd "C-=") 'er/expand-region)
-
-;; Dirtree
-(require 'tree-mode)
-(require 'windata)
-(require 'dirtree)
-
-;; Ergonomic Emacs
-(setenv "ERGOEMACS_KEYBOARD_LAYOUT" "dv") ; US Dvorak (Ergonomic)
-(load "~/.emacs.d/plugins/ergoemacs-keybindings/ergoemacs-mode")
-(ergoemacs-mode 1)
-
-;; nXhtml
-;; (load "~/.emacs.d/el-get/nxhtml/autostart.el")
-
 ;; scroll one line at a time (less "jumpy" than defaults)
-(setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; one line at a time
 (setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
 (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
-(setq scroll-step 1) ;; keyboard scroll one line at a time
 
 ;; Javascript
 (add-hook 'js-mode-hook
@@ -242,6 +149,11 @@
             (imenu-add-menubar-index)
             ;; Activate the folding mode
             (hs-minor-mode t)))
+
+;; Ergonomic Emacs
+(setenv "ERGOEMACS_KEYBOARD_LAYOUT" "dv") ; US Dvorak (Ergonomic)
+(load "~/.emacs.d/plugins/ergoemacs-keybindings/ergoemacs-mode")
+(ergoemacs-mode 1)
 
 ;; Open justo one window
 (custom-set-variables '(pop-up-frames nil))
