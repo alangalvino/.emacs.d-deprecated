@@ -118,12 +118,13 @@
   (make-directory "~/.emacs.d/elpa"))
 
 ;; Setup or install el-get if it's not installed
-(unless (require 'el-get nil t)
+(unless (file-directory-p "~/.emacs.d/el-get")
   (url-retrieve
    "https://github.com/dimitri/el-get/raw/master/el-get-install.el"
    (lambda (s)
      (end-of-buffer)
-     (eval-print-last-sexp))))
+     (eval-print-last-sexp)))
+  )
 
 ;; Install el-get packages
 (if (file-directory-p "~/.emacs.d/el-get")
