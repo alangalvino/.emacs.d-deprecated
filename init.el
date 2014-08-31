@@ -146,6 +146,10 @@
 (setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
 (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
 
+;; Uniquify buffers name
+(require 'uniquify)
+(setq uniquify-buffer-name-style 'post-forward uniquify-separator ":")
+
 ;; Javascript
 (add-hook 'js-mode-hook
           (lambda ()
