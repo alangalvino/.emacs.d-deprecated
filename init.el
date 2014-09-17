@@ -146,18 +146,6 @@
 (setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
 (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
 
-;; Uniquify buffers name
-(require 'uniquify)
-(setq uniquify-buffer-name-style 'post-forward uniquify-separator ":")
-
-;; Javascript
-(add-hook 'js-mode-hook
-          (lambda ()
-            ;; Scan the file for nested code blocks
-            (imenu-add-menubar-index)
-            ;; Activate the folding mode
-            (hs-minor-mode t)))
-
 ;; Ergonomic Emacs
 (setenv "ERGOEMACS_KEYBOARD_LAYOUT" "dv") ; US Dvorak (Ergonomic)
 (load "~/.emacs.d/plugins/ergoemacs-keybindings/ergoemacs-mode")

@@ -48,7 +48,7 @@
 
 ;; Load Solarized
 (require 'solarized-theme)
-(load-theme 'solarized-dark t)
+(load-theme 'solarized-light t)
 
 (require 'expand-region)
 (global-set-key (kbd "C-=") 'er/expand-region)
@@ -64,3 +64,37 @@
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 (setq web-mode-code-indent-offset 2)
+
+;; Ruby folding
+(add-hook 'ruby-mode-hook
+          (lambda ()
+            ;; Scan the file for nested code blocks
+            (imenu-add-menubar-index)
+            ;; Activate the folding mode
+            (hs-minor-mode t)))
+
+(eval-after-load "hideshow"
+'(add-to-list 'hs-special-modes-alist
+              `(ruby-mode
+                ,(rx (or "def" "module" "{" "[")) ; Block start
+                ,(rx (or "}" "]" "end"))                  ; Block end
+                ,(rx (or "#" "=begin"))                   ; Comment start
+                ruby-forward-sexp nil)))
+
+;; Javascript folding
+(add-hook 'js-mode-hook
+          (lambda ()
+            ;; Scan the file for nested code blocks
+            (imenu-add-menubar-index)
+            ;; Activate the folding mode
+            (hs-minor-mode t)))
+
+;; Folding key bidings
+(global-set-key (kbd "C-c C-f") 'hs-show-block)
+(global-set-key (kbd "C-c a C-f") 'hs-show-all)
+(global-set-key (kbd "C-c C-h") 'hs-hide-block)
+(global-set-key (kbd "C-c a C-h") 'hs-hide-all)
+
+;; Uniquify buffers name
+(require 'uniquify)
+(setq uniquify-buffer-name-style 'post-forward uniquify-separator ":")
