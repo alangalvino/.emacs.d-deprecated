@@ -3,32 +3,37 @@
 
 (setq el-get-sources
       '(
-	(:name auto-complete
+        (:name auto-complete
                :type git
-	       :url "https://github.com/auto-complete/auto-complete.git"
-	       :branch "1.3")
-	(:name solarized-theme 
+               :url "https://github.com/auto-complete/auto-complete.git"
+               :branch "1.3")
+        (:name solarized-theme 
                :type elpa
-	       :compile "solarized-theme")
-	(:name expand-region
-	       :type git
-	       :url "https://github.com/magnars/expand-region.el/"
-	       :compile "expand-region.el")
-	)
+               :compile "solarized-theme")
+        (:name expand-region
+               :type git
+               :url "https://github.com/magnars/expand-region.el/"
+               :compile "expand-region.el")
+        (:name nav
+               :type git
+               :url "https://github.com/ancane/emacs-nav"
+               :compile "nav.el")
+        )
       )
 
 ;; Packages to install
 (setq my-packages 
       (append '(
-		nav
+                dash
+                nav
                 web-mode
-		auto-complete
-		solarized-theme
-		autopair
-		markdown-mode
-		expand-region
-		) 
-	      (mapcar 'el-get-source-name el-get-sources))) 
+                auto-complete
+                solarized-theme
+                autopair
+                markdown-mode
+                expand-region
+                ) 
+              (mapcar 'el-get-source-name el-get-sources))) 
 
 (el-get 'sync my-packages)
 
@@ -47,6 +52,7 @@
 (ido-mode t)
 
 ;; Load Solarized
+(require 'dash)
 (require 'solarized-theme)
 (load-theme 'solarized-light t)
 
