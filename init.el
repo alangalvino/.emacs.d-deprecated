@@ -34,6 +34,9 @@
 
 ;; ======== Gerenal configs ========
 
+;; Avoid emacs encoding magic comment for ruby
+(setq ruby-insert-encoding-magic-comment nil)
+
 ;; Tab width
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 2)
