@@ -7,5 +7,5 @@
 ;; Set font to Inconsolata
 ;; (set-default-font "Inconsolata-16")
 
-;; Não repassar os comandos do emacs para o mac!
+;; Ignore mac commands
 ;; (setq mac-pass-command-to-system nil)
