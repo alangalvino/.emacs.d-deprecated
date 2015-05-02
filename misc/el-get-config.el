@@ -24,6 +24,8 @@
 ;; Packages to install
 (setq my-packages 
       (append '(
+                ergoemacs-mode
+                undo-tree
                 dash
                 nav
                 web-mode
@@ -31,17 +33,10 @@
                 solarized-theme
                 autopair
                 markdown-mode
-                expand-region
                 ) 
               (mapcar 'el-get-source-name el-get-sources))) 
 
 (el-get 'sync my-packages)
-
-;; Config and initialize packages
-
-;; Auto-complete
-(require 'auto-complete)
-(global-auto-complete-mode t)
 
 ;; Autopair
 (require 'autopair)
@@ -54,10 +49,7 @@
 ;; Load Solarized
 (require 'dash)
 (require 'solarized-theme)
-(load-theme 'solarized-light t)
-
-(require 'expand-region)
-(global-set-key (kbd "C-=") 'er/expand-region)
+(load-theme 'solarized-dark t)
 
 ;; Web mode
 (require 'web-mode)
@@ -112,3 +104,18 @@
 ;; Uniquify buffers name
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'post-forward uniquify-separator ":")
+
+;; Ergoemacs
+(setq ergoemacs-theme nil)
+(setq ergoemacs-keyboard-layout "dv")
+(require 'ergoemacs-mode)
+(ergoemacs-mode 1)
+
+;; Ergoemacs fixes
+(global-set-key (kbd "C-SPC") 'set-mark-command)
+(global-set-key (kbd "M-e") 'delete-backward-char)
+(global-set-key (kbd "M-4") 'split-window-horizontally)
+(global-set-key (kbd "C--") 'comment-or-uncomment-region-or-line)
+(global-set-key (kbd "C-x C--") 'text-scale-decrease)
+(global-set-key (kbd "C-x C-+") 'text-scale-increase)
+(global-set-key (kbd "C-x C-0") 'ergoemacs-text-scale-normal-size)

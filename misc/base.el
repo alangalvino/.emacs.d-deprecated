@@ -5,7 +5,7 @@
 (setq default-directory "~/workspace")
 
 ;; Set font to Inconsolata
-;; (set-default-font "Inconsolata-16")
+(set-default-font "Inconsolata-17")
 
 ;; Ignore mac commands
-;; (setq mac-pass-command-to-system nil)
+(setq mac-pass-command-to-system nil)
