@@ -62,6 +62,10 @@
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 (setq web-mode-code-indent-offset 2)
+(setq web-mode-css-indent-offset 2)
+(setq web-mode-code-indent-offset 2)
+(setq web-mode-markup-indent-offset 2)
+(setq web-mode-block-padding 2)
 
 ;; Ruby mode for rake and gem
 (add-to-list 'auto-mode-alist '("\\.rake$" . ruby-mode))
@@ -119,3 +123,4 @@
 (global-set-key (kbd "C-x C--") 'text-scale-decrease)
 (global-set-key (kbd "C-x C-+") 'text-scale-increase)
 (global-set-key (kbd "C-x C-0") 'ergoemacs-text-scale-normal-size)
+(global-set-key (kbd "M-o") 'other-window)
