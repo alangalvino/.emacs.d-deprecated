@@ -25,6 +25,7 @@
 (setq my-packages 
       (append '(
                 ergoemacs-mode
+                smex
                 undo-tree
                 dash
                 nav
@@ -117,6 +118,8 @@
 
 ;; Ergoemacs fixes
 (global-set-key (kbd "C-SPC") 'set-mark-command)
+(global-set-key (kbd "C-<m>") 'newline)
+
 (global-set-key (kbd "M-e") 'delete-backward-char)
 (global-set-key (kbd "M-4") 'split-window-horizontally)
 (global-set-key (kbd "C--") 'comment-or-uncomment-region-or-line)
