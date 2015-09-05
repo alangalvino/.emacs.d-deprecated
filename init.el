@@ -96,18 +96,6 @@
 ;; Load misc config
 (add-to-list 'load-path "~/.emacs.d/misc/")
 
-(if (eq system-type 'darwin)
-    (progn
-      (load "mac")
-      )
-)
-
-(if (eq system-type 'gnu/linux)
-    (progn
-      (load "linux")
-      )
-)
-
 ;; Load base config
 (load "base")
 
@@ -149,7 +137,22 @@
 ;; Install el-get packages
 (if (file-directory-p "~/.emacs.d/el-get")
   (load "el-get-config")	
+  )
+
+(if (eq system-type 'darwin)
+    (progn
+      (load "mac")
+      )
 )
+
+(if (eq system-type 'gnu/linux)
+    (progn
+      (load "linux")
+      )
+)
+
+(global-set-key (kbd "C-m") 'newline)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -163,7 +166,6 @@
  '(nav-width 25)
  '(org-CUA-compatible nil)
  '(org-replace-disputed-keys nil)
- '(recentf-mode t)
  '(shift-select-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
