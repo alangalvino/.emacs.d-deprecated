@@ -1,175 +1,23 @@
-;; ======== Emacs file ========
+(package-initialize)
 
-;; My emacs config file
-;; @autor = Alan Gomes Alvino, alangavino@gmail.com
+;; Emacs custom config folder
+(add-to-list 'load-path "~/.emacs.d/config")
 
-;; ======== Functions ========
+;; Emacs custom config files
+(load "init_emacs_gui")
+(load "init_util_functions")
+(load "init_formatting")
 
-;; Fullscren on linux
-(defun toggle-fullscreen (&optional f)
-      (interactive)
-      (let ((current-value (frame-parameter nil 'fullscreen)))
-           (set-frame-parameter nil 'fullscreen
-                                (if (equal 'fullboth current-value)
-                                    (if (boundp 'old-fullscreen) old-fullscreen nil)
-                                    (progn (setq old-fullscreen current-value)
-                                           'fullboth)))))
+;; Plugins config
+(load "init_el_get")
+(load "init_ido")
+(load "init_uniquify")
+(load "init_ergoemacs")
+(load "init_solarized")
+(load "init_autopair")
+(load "init_nav")
 
-
-;; Comment line or region
-(defun comment-or-uncomment-region-or-line ()
-    "Comments or uncomments the region or the current line if there's no active region."
-    (interactive)
-    (let (beg end)
-        (if (region-active-p)
-            (setq beg (region-beginning) end (region-end))
-            (setq beg (line-beginning-position) end (line-end-position)))
-        (comment-or-uncomment-region beg end)))
-
-
-;; Remove linum mode of the nav buffer
-(defun remove-linum-mode-of-nav-buffer ()
-  (unless (equal nil (string-match "*nav*" (buffer-name))) (linum-mode 0) nil)
-  )
-
-;; ======== Gerenal configs ========
-
-;; Avoid emacs encoding magic comment for ruby
-(setq ruby-insert-encoding-magic-comment nil)
-
-;; Tab width
-(setq-default indent-tabs-mode nil)
-(setq-default tab-width 2)
-(setq ruby-indent-level 2)
-(setq js-indent-level 2)
-
-;; Adding remove linum mode to after changing mode hook
-(add-hook 'after-change-major-mode-hook 'remove-linum-mode-of-nav-buffer)
-
-;; Space between code and and line number
-(setq linum-format "%d ")
-
-;; Delete selected text
-(delete-selection-mode 1)
-
-;; Turn on paren match hightlighting
-(show-paren-mode 1)
-
-;; Show column number
-(column-number-mode 1)
-
-;; Refresh buffers
-(global-auto-revert-mode t)
-
-;; Show lines
-(global-linum-mode 1)
-
-;; Don't make backup file
-(setq make-backup-files nil)
-
-;; Don't make autosave file
-(setq auto-save-default nil)
-
-;; Remove splash screen
-(setq inhibit-splash-screen t)
-
-;; Remove startup message
-(setq inhibit-startup-message t)
-(setq initial-scratch-message nil)
-(setq inhibit-startup-echo-area-message t)
-
-;; Enable clipboard copy and paste
-(setq x-select-enable-clipboard t)
-
-;; Global set keys
-(defun hbin-find-tag ()
-  (interactive)
-  (find-tag (find-tag-default)))
-
-(global-set-key (kbd "M-[") 'hbin-find-tag)
-
-(global-set-key (kbd "M-]") 'pop-tag-mark)
-
-;; Load system config
-(add-to-list 'load-path "~/.emacs.d/system/")
-
-;; Load misc config
-(add-to-list 'load-path "~/.emacs.d/misc/")
-
-;; Load base config
-(load "base")
-
-;; Remove menu bar
-(menu-bar-mode -1)
-
-;; Remove toll bar
-(tool-bar-mode -1)
-
-;; Remove scroll bar
-(toggle-scroll-bar -1)
-
-;; Blink cursor mode
-(setq blink-cursor-mode t)
-
-;; ======== Emacs 24 ========
-
-;; Making elpa dir
-(unless (file-directory-p "~/.emacs.d/elpa")
-  (make-directory "~/.emacs.d/elpa"))
-
-;; Setup or install el-get if it's not installed
-(unless (file-directory-p "~/.emacs.d/el-get")
-  (url-retrieve
-   "https://github.com/dimitri/el-get/raw/master/el-get-install.el"
-   (lambda (s)
-     (end-of-buffer)
-     (eval-print-last-sexp)))
-  )
-
-;; Remove anoying message from emacsclient
-(remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function)
-
-;; ======== Initialize plugins ========
-
-;; Adding plugin folder
-(add-to-list 'load-path "~/.emacs.d/plugins/")
-
-;; Install el-get packages
-(if (file-directory-p "~/.emacs.d/el-get")
-  (load "el-get-config")	
-  )
-
-(if (eq system-type 'darwin)
-    (progn
-      (load "mac")
-      )
-)
-
-(if (eq system-type 'gnu/linux)
-    (progn
-      (load "linux")
-      )
-)
-
-(global-set-key (kbd "C-m") 'newline)
-
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-safe-themes
-   (quote
-    ("d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" default)))
- '(delete-selection-mode t)
- '(initial-scratch-message nil)
- '(nav-width 25)
- '(org-CUA-compatible nil)
- '(org-replace-disputed-keys nil)
- '(shift-select-mode nil))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+;; Other configs
+(load "init_emacs")
+(load "init_mac_os")
+(load "init_key_bindings")
