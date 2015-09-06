@@ -17,6 +17,7 @@
       '((:name solarized-theme
                :type git
                :url "https://github.com/bbatsov/solarized-emacs.git"
+               :branch "v1.2.2"
                :compile "solarized-theme")
         (:name ergoemacs-mode
                :type git
