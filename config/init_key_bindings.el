@@ -4,6 +4,7 @@
 (global-set-key (kbd "M-RET") 'toggle-fullscreen)
 
 ;; Ergoemacs fixes
+(global-set-key (kbd "M-e") 'delete-backward-char)
 (global-set-key (kbd "C-SPC") 'set-mark-command)
 (global-set-key (kbd "C--") 'comment-or-uncomment-region-or-line)
 (global-set-key (kbd "C-x C--") 'text-scale-decrease)
