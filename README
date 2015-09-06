@@ -1,3 +1,22 @@
-My minimalist emacs configuration.
+# My personal minimalistic emacs configuration
 
-P.S.: Emacs Icon in misc folder is from deviant art user 'bananXan', link is here: http://bananxan.deviantart.com/art/Emacs-icon-207744728
+## Config folder
+
+All my emacs configurations are in config folder separated in different files, ex.: 
+
+"init_uniquify.el"
+
+```
+;; Uniquify buffers name
+(require 'uniquify)
+(setq uniquify-buffer-name-style 'post-forward uniquify-separator ":")
+
+```
+
+## Installed plugins
+
+* El-get
+* Ergoemacs
+* Nav
+* Solarized-theme
+* Autopair
