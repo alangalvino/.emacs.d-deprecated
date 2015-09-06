@@ -28,7 +28,23 @@ make config
 * [Solarized-theme][solarized]
 * [Autopair][autopair]
 
+
+## Dependencies
+
+* [Mac OS][mac-os]
+* [Emacs-mac-port][emacs-mac-port]
+* [Zshell][zshell]
+* [Inconsolata font][inconsolata]
+
+## Additional tips
+
+I use the icons from [emacs-sexy][emacs-sexy] on my emacs Mac OS app
+
 [emacs-mac-port]: https://github.com/railwaycat/emacs-mac-port
+[mac-os]: http://www.apple.com/osx/
+[zshell]: http://www.zsh.org/
+[inconsolata]: http://www.levien.com/type/myfonts/inconsolata.html
+[emacs-sexy]: http://emacs.sexy/
 [el-get]: https://github.com/dimitri/el-get
 [ergoemacs]: https://github.com/ergoemacs/ergoemacs-mode
 [nav]: https://github.com/ancane/emacs-nav
