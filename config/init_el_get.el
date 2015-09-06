@@ -18,6 +18,11 @@
                :type git
                :url "https://github.com/bbatsov/solarized-emacs.git"
                :compile "solarized-theme")
+        (:name ergoemacs-mode
+               :type git
+               :url "https://github.com/ergoemacs/ergoemacs-mode.git"
+               :branch "v5.14.7.3.1"
+               :compile "ergoemacs-mode")
         (:name nav
                :type git
                :url "https://github.com/ancane/emacs-nav"
