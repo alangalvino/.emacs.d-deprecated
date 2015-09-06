@@ -7,3 +7,6 @@ misc/local.el
 el-get/*
 elpa/*
 url/*
+custom.el
+ido.last
+recentf
