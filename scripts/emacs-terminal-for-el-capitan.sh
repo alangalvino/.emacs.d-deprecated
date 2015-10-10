@@ -1,4 +1,6 @@
 #!/bin/bash
 
-touch $@
+if [ ! -e $@ ] ; then
+    touch $@
+fi
 open -a /Applications/Emacs.app $@
