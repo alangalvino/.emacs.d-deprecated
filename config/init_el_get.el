@@ -24,6 +24,11 @@
                :url "https://github.com/ergoemacs/ergoemacs-mode.git"
                :branch "v5.14.7.3.1"
                :compile "ergoemacs-mode")
+        (:name aggressive-indent
+               :type git
+               :url "https://github.com/Malabarba/aggressive-indent-mode.git"
+               :branch "1.4.2"
+               :compile "aggressive-indent")
         (:name nav
                :type git
                :url "https://github.com/ancane/emacs-nav"
@@ -34,6 +39,7 @@
       (append '(nav
                 autopair
                 dash
+                aggressive-indent
                 solarized-theme
                 ergoemacs-mode)
               (mapcar 'el-get-source-name el-get-sources))) 
