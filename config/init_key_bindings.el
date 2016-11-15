@@ -15,6 +15,6 @@
 (global-set-key (kbd "C-o") 'helm-find-files)
 
 ;; Custom key bindings
-(global-set-key (kbd "C-c f") 'toggle-frame-maximized) ;; Toggle fullscreen
+(global-set-key (kbd "C-c f") 'toggle-frame-fullscreen) ;; Toggle fullscreen
 (global-set-key (kbd "C-c n") 'nav-toggle)             ;; Nav
 (global-set-key (kbd "C-c s") 'eshell)                 ;; Eshell
