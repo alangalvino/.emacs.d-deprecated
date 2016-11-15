@@ -14,3 +14,11 @@
 ;; Remove linum mode of the nav buffer
 (defun remove-linum-mode-of-nav-buffer ()
   (unless (equal nil (string-match "*nav*" (buffer-name))) (linum-mode 0) nil))
+
+;; Eshell clear function
+(defun eshell-clear-buffer ()
+  "Clear terminal"
+  (interactive)
+  (let ((inhibit-read-only t))
+    (erase-buffer)
+    (eshell-send-input)))

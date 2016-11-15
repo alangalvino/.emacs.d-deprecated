@@ -1,6 +1,7 @@
 ; list the packages you want
 (setq package-list '(ergoemacs-mode
                      solarized-theme
+                     exec-path-from-shell
                      autopair
                      helm
                      nav))

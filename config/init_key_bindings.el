@@ -18,11 +18,11 @@
 
 ;; Helm
 (global-set-key (kbd "M-a") 'helm-M-x)
+(global-set-key (kbd "C-o") 'helm-find-files)
 
 ;; Nav
 (global-set-key (kbd "C-c n") 'nav-toggle)
 
-(defun nav-mode-hl-hook ()
-  (local-set-key (kbd "o") 'nav-open-file-under-cursor))
-
-(add-hook 'nav-mode-hook 'nav-mode-hl-hook)
+(add-hook 'nav-mode-hook
+          '(lambda()
+             (local-set-key (kbd "o") 'nav-open-file-under-cursor)))

@@ -23,7 +23,6 @@
 (load "init_uniquify")
 (load "init_autopair")
 (load "init_eshell")
-(load "init_helm")
 (load "init_nav")
 
 ;; Other configs

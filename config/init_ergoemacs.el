@@ -1,6 +1,4 @@
 ;; Ergonomic keyboard layout for emacs
-(require 'ergoemacs-mode)
-
 (setq ergoemacs-theme nil)
 (setq ergoemacs-change-fixed-layout-to-variable-layout t)
 
