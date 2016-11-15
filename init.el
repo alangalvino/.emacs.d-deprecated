@@ -28,4 +28,3 @@
 
 ;; Other configs
 (load "init_key_bindings")
-(put 'erase-buffer 'disabled nil)
