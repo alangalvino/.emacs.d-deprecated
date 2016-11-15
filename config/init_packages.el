@@ -10,7 +10,7 @@
 (setq package-archives '(("elpa" . "http://tromey.com/elpa/")
                          ("gnu" . "http://elpa.gnu.org/packages/")
                          ("org" . "http://orgmode.org/elpa/")
-                         ("melpa" . "https://melpa.org/packages/")
+                         ("melpa" . "http://melpa.org/packages/")
                          ("marmalade" . "http://marmalade-repo.org/packages/")))
 
 ; activate all the packages (in particular autoloads)
