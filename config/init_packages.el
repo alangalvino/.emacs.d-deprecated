@@ -1,26 +1,26 @@
-; list the packages you want
-(setq package-list '(ergoemacs-mode
+; List packages
+(setq package-list '(exec-path-from-shell
                      solarized-theme
-                     exec-path-from-shell
+                     ergoemacs-mode
                      autopair
                      helm
                      nav))
 
-; list the repositories containing them
+; List repositories
 (setq package-archives '(("elpa" . "http://tromey.com/elpa/")
                          ("gnu" . "http://elpa.gnu.org/packages/")
                          ("org" . "http://orgmode.org/elpa/")
                          ("melpa" . "http://melpa.org/packages/")
                          ("marmalade" . "http://marmalade-repo.org/packages/")))
 
-; activate all the packages (in particular autoloads)
+; Initialize packages
 (package-initialize)
 
-; fetch the list of packages available 
+; Fetch available packages
 (unless package-archive-contents
   (package-refresh-contents))
 
-; install the missing packages
+; Install the missing packages
 (dolist (package package-list)
   (unless (package-installed-p package)
     (package-install package)))
