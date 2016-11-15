@@ -1,5 +1,8 @@
 ;; Configurations for Mac OS
 
+;; Enables non native fullscreen
+(setq ns-use-native-fullscreen nil)
+
 ;; Macs OS Command as Meta Key
 (setq mac-command-modifier 'meta)
 (setq mac-option-modifier nil)
