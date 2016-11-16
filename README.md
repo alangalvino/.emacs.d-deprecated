@@ -8,7 +8,7 @@
 
 ### Configure
 
-Use Makefile config method to setup a script to open Emacs macOS Application from terminal
+Use Makefile "config" method to setup a script which opens Emacs macOS Application from terminal
 
 ```
 make config
