@@ -16,6 +16,7 @@
 
 ;; General configs
 (load "init_emacs")
+(load "init_orgmode")
 (load "init_mac_os")
 
 ;; Packages config
