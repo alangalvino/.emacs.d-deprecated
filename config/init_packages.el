@@ -4,6 +4,7 @@
                      ergoemacs-mode
                      autopair
                      helm
+                     org-bullets
                      nav))
 
 ; List repositories
