@@ -13,6 +13,8 @@
 ;; Helm
 (global-set-key (kbd "M-a") 'helm-M-x)
 (global-set-key (kbd "C-o") 'helm-find-files)
+(global-set-key (kbd "C-x C-o") 'my-notes-find)
+(global-set-key (kbd "C-x C-b") 'helm-buffers-list)
 
 ;; Custom key bindings
 (global-set-key (kbd "C-c f") 'toggle-frame-fullscreen) ;; Toggle fullscreen
