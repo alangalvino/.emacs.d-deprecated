@@ -8,9 +8,6 @@
   (let ((default-directory "~/.org-notes/"))
     (helm-find-files nil)))
 
-(require 'org-journal)
-(setq org-journal-dir "~/.org-notes/journal") 
-
 (setq org-capture-templates '(
     ("j" "Journal Entry"
          entry (file+datetree "~/journal.org")
