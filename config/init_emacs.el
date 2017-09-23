@@ -28,7 +28,7 @@
 (column-number-mode 1)
 
 ;; Show lines
-(global-linum-mode 1)
+;; (global-linum-mode 1)
 
 ;; Blink cursor mode
 (setq blink-cursor-mode t)
