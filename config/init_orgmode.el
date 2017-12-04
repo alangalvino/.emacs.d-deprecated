@@ -39,7 +39,7 @@
 (setq org-refile-allow-creating-parent-nodes 'confirm)
 
 ;; Org archive
-(setq org-archive-location "./archive/%s_archive.gpg::* Archived Tasks")
+(setq org-archive-location "./archive/%s_archive.gpg::* Archived items")
 
 ;; Org babel
 (org-babel-do-load-languages
