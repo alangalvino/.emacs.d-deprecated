@@ -20,3 +20,5 @@
 (global-set-key (kbd "C-c f") 'toggle-frame-fullscreen) ;; Toggle fullscreen
 (global-set-key (kbd "C-c n") 'nav-toggle)              ;; Nav
 (global-set-key (kbd "C-c s") 'eshell)                  ;; Eshell
+(global-set-key (kbd "C-c a") 'org-agenda)              ;; Orgmode
+(global-set-key (kbd "C-c c") 'org-capture)             ;; Orgmode
